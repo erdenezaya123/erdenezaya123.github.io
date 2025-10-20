@@ -6,6 +6,8 @@
     <title>吉雅 - 软件工程师</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Notyf CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
     <style>
         :root {
             --primary: #f8f9fa;
@@ -1010,6 +1012,8 @@
         </div>
     </footer>
 
+    <!-- Notyf JS -->
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const text = "Welcome to zaya's page!";
@@ -1038,21 +1042,45 @@
             
             setTimeout(typeWriter, 500);
 
+            // 初始化 Notyf
+            const notyf = new Notyf({
+                duration: 2000,
+                position: {
+                    x: 'center',
+                    y: 'top',
+                },
+                ripple: true,
+                dismissible: true,
+                types: [
+                    {
+                        type: 'success',
+                        background: '#5e51d3',
+                        icon: {
+                            className: 'fas fa-check',
+                            tagName: 'i',
+                            color: '#ffffff'
+                        }
+                    }
+                ]
+            });
+
             // 复制邮件地址
             document.getElementById('email-icon').addEventListener('click', function() {
                 navigator.clipboard.writeText('6322000326@tju.edu.cn').then(() => {
-                    alert('邮箱地址已复制到剪贴板！');
+                    notyf.success('邮箱地址已复制到剪贴板！');
                 }).catch(err => {
                     console.error('复制失败:', err);
+                    notyf.error('复制失败，请手动复制');
                 });
             });
 
             // 复制微信号
             document.getElementById('wechat-icon').addEventListener('click', function() {
                 navigator.clipboard.writeText('ez1025').then(() => {
-                    alert('微信号已复制到剪贴板！');
+                    notyf.success('微信号已复制到剪贴板！');
                 }).catch(err => {
                     console.error('复制失败:', err);
+                    notyf.error('复制失败，请手动复制');
                 });
             });
         });
