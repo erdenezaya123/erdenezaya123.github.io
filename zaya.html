@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>吉雅 - 软件工程师</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #f8f9fa;
+            --secondary: #5e51d3;
+            --light: #1e293b;
+            --dark: #e2e8f0;
+            --gray: #64748b;
+            --accent: #615ced;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--primary);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #5e51d3, #615ced);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 1s ease-in-out;
+        }
+        
+        .welcome-container {
+            text-align: center;
+        }
+        
+        .welcome-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: 0.15em;
+        }
+        
+        .cursor {
+            display: inline-block;
+            width: 0.1em;
+            height: 1.2em;
+            background-color: white;
+            margin-left: 0.1em;
+            animation: blink 0.8s infinite;
+            vertical-align: middle;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 80px;
+            background: linear-gradient(to bottom, var(--primary), #f0f0ff);
+        }
+        
+        .hero-content {
+            max-width: 600px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .hero-info-line {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            gap: 20px;
+        }
+        
+        .hero-info-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray);
+            font-size: 18px;
+        }
+        
+        .hero-info-item i {
+            color: var(--secondary);
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: var(--gray);
+            max-width: 600px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: transparent;
+            color: var(--secondary);
+            border: 1px solid var(--secondary);
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        .btn:hover {
+            background-color: rgba(94, 81, 211, 0.1);
+        }
+        
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--secondary);
+            display: inline-block;
+            font-weight: 600;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 50%;
+            height: 3px;
+            background-color: var(--accent);
+            margin: 15px auto;
+            border-radius: 3px;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+        
+        .skill-tag {
+            background-color: rgba(94, 81, 211, 0.1);
+            color: var(--secondary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .about-image {
+            width: 100%;
+            height: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            border: 1px solid var(--border);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+            cursor: pointer;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+        
+        .project-img {
+            height: 200px;
+            background-color: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-size: 40px;
+        }
+        
+        .project-info {
+            padding: 25px;
+        }
+        
+        .project-info h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+        
+        .project-info p {
+            color: var(--gray);
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .tech-tag {
+            background-color: rgba(100, 116, 139, 0.1);
+            color: var(--gray);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .project-link {
+            color: var(--secondary);
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 500;
+        }
+        
+        .training-content {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid var(--border);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+        }
+        
+        .training-item {
+            margin-bottom: 30px;
+        }
+        
+        .training-item h3 {
+            font-size: 22px;
+            color: var(--secondary);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        
+        .training-item p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+        
+        .honors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .honor-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 1px solid var(--border);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+        }
+        
+        .honor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+        
+        .honor-icon {
+            font-size: 40px;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .honor-card h3 {
+            font-size: 22px;
+            color: var(--secondary);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        
+        .honor-card p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+        
+        .honor-date {
+            color: var(--accent);
+            font-size: 14px;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+        
+        .hobbies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .hobby-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            border: 1px solid var(--border);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .hobby-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+        
+        .hobby-img {
+            height: 250px;
+            background-color: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .hobby-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .hobby-card:hover .hobby-img img {
+            transform: scale(1.05);
+        }
+        
+        .hobby-info {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .hobby-info h3 {
+            font-size: 22px;
+            color: var(--secondary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            font-weight: 600;
+        }
+        
+        .hobby-info h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background-color: var(--accent);
+            bottom: -8px;
+            left: 0;
+            border-radius: 3px;
+        }
+        
+        .hobby-info p {
+            color: var(--gray);
+            flex-grow: 1;
+            line-height: 1.7;
+            margin-top: 15px;
+        }
+        
+        .experience-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--accent);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            justify-content: flex-start;
+        }
+        
+        .timeline-item:nth-child(even) {
+            justify-content: flex-end;
+        }
+        
+        .timeline-content {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            width: 45%;
+            border: 1px solid var(--border);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+        }
+        
+        .timeline-content h3 {
+            font-size: 20px;
+            color: var(--secondary);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .timeline-content .date {
+            color: var(--accent);
+            font-size: 14px;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .timeline-content p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+        
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .contact-content p {
+            color: var(--gray);
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--gray);
+            font-weight: 500;
+        }
+        
+        .contact-item i {
+            color: var(--accent);
+            font-size: 20px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid var(--border);
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero-info-line {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .projects-grid, .honors-grid, .hobbies-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .experience-timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                justify-content: flex-start !important;
+                padding-left: 40px;
+            }
+            
+            .timeline-content {
+                width: 100%;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .welcome-text {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="splash-screen">
+        <div class="welcome-container">
+            <div class="welcome-text" id="welcome-text"></div>
+        </div>
+    </div>
+    
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">D.Erdenezaya</div>
+                <ul class="nav-links">
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#about">关于我</a></li>
+                    <li><a href="#projects">项目经历</a></li>
+                    <li><a href="#training">实训经历</a></li>
+                    <li><a href="#honors">荣誉奖项</a></li>
+                    <li><a href="#hobbies">兴趣爱好</a></li>
+                    <li><a href="#experience">社团经历</a></li>
+                    <li><a href="#contact">联系我</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>吉雅</h1>
+                <div class="hero-info-line">
+                    <div class="hero-info-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>6322000326@tju.edu.cn</span>
+                    </div>
+                    <div class="hero-info-item">
+                        <i class="fas fa-globe"></i>
+                        <span>蒙古国</span>
+                    </div>
+                    <div class="hero-info-item">
+                        <i class="fas fa-university"></i>
+                        <span>天津大学</span>
+                    </div>
+                    <div class="hero-info-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>软件工程</span>
+                    </div>
+                </div>
+                <p>热爱技术与创造的软件工程专业大四学生，具备扎实的全栈开发能力与项目实践经验，专注于智能系统、微服务架构与用户体验优化。</p>
+                <a href="#projects" class="btn">查看我的项目</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>关于我</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>蒙古国留学生，目前就读于天津大学软件工程专业，即将攻读研究生学位。拥有扎实的计算机科学基础和丰富的项目开发经验。</p>
+                    <p>主修课程包括软件工程(双语)、设计模式、软件测试技术、操作系统原理、数据库原理、数据结构、算法设计与分析、计算机系统基础等。</p>
+                    <p>掌握了系统化软件开发流程设计能力、面向对象设计原则与模式应用能力、自动化测试用例编写与执行能力。</p>
+                    <div class="skills">
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Vue</span>
+                        <span class="skill-tag">Vite</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">SpringBoot</span>
+                        <span class="skill-tag">SpringCloud</span>
+                        <span class="skill-tag">MySQL</span>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://gitee.com/D-erdenezaya/personal-webpage-gallery/blob/master/%E5%9B%BE.jpg" alt="吉雅的个人照片">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>项目经历</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card" onclick="window.open('https://gitee.com/sssun-jianan/2024tju', '_blank')">
+                    <div class="project-img">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>"饿了吧"外卖点餐系统</h3>
+                        <p>基于Vue3+SpringBoot的前后端分离式在线订餐平台，修复并优化了原有系统的功能缺陷和交互问题。</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Vue3</span>
+                            <span class="tech-tag">SpringBoot</span>
+                            <span class="tech-tag">MySQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://gitee.com/sssun-jianan/2024tju" class="project-link" target="_blank">
+                                <i class="fab fa-gitee"></i> 查看代码
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" onclick="window.open('https://gitee.com/D-erdenezaya/ele', '_blank')">
+                    <div class="project-img">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>"饿了吧"后端扩展</h3>
+                        <p>在现有系统基础上扩展电子钱包和积分系统，采用DDD充血模型设计高可用金融级功能模块。</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Vue3</span>
+                            <span class="tech-tag">SpringBoot</span>
+                            <span class="tech-tag">DDD</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://gitee.com/D-erdenezaya/ele" class="project-link" target="_blank">
+                                <i class="fab fa-gitee"></i> 查看代码
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" onclick="window.open('https://gitee.com/epwwwrrqpp/advanced-practice', '_blank')">
+                    <div class="project-img">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>"饿了吧"微服务架构升级</h3>
+                        <p>将系统从SpringBoot单体应用重构为基于SpringCloud的微服务架构，提升系统可维护性和容错能力。</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Vue3</span>
+                            <span class="tech-tag">SpringCloud</span>
+                            <span class="tech-tag">微服务</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://gitee.com/epwwwrrqpp/advanced-practice" class="project-link" target="_blank">
+                                <i class="fab fa-gitee"></i> 查看代码
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" onclick="window.open('https://gitee.com/D-erdenezaya/homestaybooking', '_blank')">
+                    <div class="project-img">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>基于微服务架构的民宿在线预订平台</h3>
+                        <p>基于Spring Cloud微服务架构，构建前后端分离的民宿预订平台。用户端实现从搜索、预订、支付到评价的全流程。商家端则提供房源、订单、退款及评论等后台管理功能，支持多角色协同操作。</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Vue3</span>
+                            <span class="tech-tag">SpringCloud</span>
+                            <span class="tech-tag">微服务</span>
+                            <span class="tech-tag">Gateway</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://gitee.com/D-erdenezaya/homestaybooking" class="project-link" target="_blank">
+                                <i class="fab fa-gitee"></i> 查看代码
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="training">
+        <div class="container">
+            <div class="section-title">
+                <h2>实训经历</h2>
+            </div>
+            <div class="training-content">
+                <div class="training-item">
+                    <h3>飞腾信息技术有限公司实训</h3>
+                    <p>获得了飞腾平台深度并行开发工程师认证。通过实训掌握了飞腾派嵌入式开发、OpenCV图像处理、语音交互系统开发以及AI模型部署技术。</p>
+                </div>
+                <div class="training-item">
+                    <h3>水果分拣机器人项目</h3>
+                    <p>开发了一套智能水果分拣系统，通过计算机视觉和机械臂控制实现水果的自动检测、分类和投放。负责数据集收集标注、YOLOv5s模型训练、机械臂控制逻辑实现和系统测试。</p>
+                    <div class="project-links">
+                        <a href="https://gitee.com/D-erdenezaya/fruitDetect" class="project-link" target="_blank">
+                            <i class="fab fa-gitee"></i> 查看项目
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="honors">
+        <div class="container">
+            <div class="section-title">
+                <h2>荣誉奖项</h2>
+            </div>
+            <div class="honors-grid">
+                <div class="honor-card">
+                    <div class="honor-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>天津大学优秀留学生奖</h3>
+                    <p>连续两个学年获得天津大学优秀留学生奖学金，表彰在学术和课外活动中的卓越表现。</p>
+                    <div class="honor-date">2022-2024</div>
+                </div>
+                <div class="honor-card">
+                    <div class="honor-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3>2024年度学业勤奋奖</h3>
+                    <p>该奖项不仅是对其优异学业成绩的肯定，更是对其刻苦钻研、持之以恒精神的高度认可。</p>
+                    <div class="honor-date">2024年12月</div>
+                </div>
+                <div class="honor-card">
+                    <div class="honor-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>飞腾平台深度并行开发工程师认证</h3>
+                    <p>通过飞腾信息技术有限公司实训获得深度并行开发工程师认证。</p>
+                    <div class="honor-date">2025年7月</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="hobbies">
+        <div class="container">
+            <div class="section-title">
+                <h2>兴趣爱好</h2>
+            </div>
+            <div class="hobbies-grid">
+                <div class="hobby-card">
+                    <div class="hobby-img">
+                        <img src="https://gitee.com/D-erdenezaya/personal-webpage-gallery/blob/master/%E6%91%84%E5%BD%B1.jpg" alt="摄影作品 - 自然风光">
+                    </div>
+                    <div class="hobby-info">
+                        <h3>摄影</h3>
+                        <p>用镜头捕捉生活中的美好瞬间，特别擅长城市风光和自然景观摄影。通过光影与构图的精心设计，记录旅途中的精彩时刻和日常生活中的诗意画面。</p>
+                    </div>
+                </div>
+                
+                <div class="hobby-card">
+                    <div class="hobby-img">
+                        <img src="https://gitee.com/D-erdenezaya/personal-webpage-gallery/blob/master/%E7%9F%B3%E5%A1%91%E7%B2%98%E5%9C%9F.jpg" alt="石塑粘土作品">
+                    </div>
+                    <div class="hobby-info">
+                        <h3>石塑粘土</h3>
+                        <p>创作各种石塑粘土艺术品，从人物造型到装饰品，表达创意想法。通过手工塑造、雕刻和上色，将平凡的材料转化为充满个性的艺术创作。</p>
+                    </div>
+                </div>
+                
+                <div class="hobby-card">
+                    <div class="hobby-img">
+                        <img src="https://gitee.com/D-erdenezaya/personal-webpage-gallery/blob/master/%E6%B5%B7%E6%A3%A0%E8%8A%82%E5%AD%A6%E4%B9%A0%E8%AF%AD%E8%A8%80%E6%B4%BB%E5%8A%A8.jpg" alt="设计作品">
+                    </div>
+                    <div class="hobby-info">
+                        <h3>平面设计</h3>
+                        <p>致力于通过平面设计连接创意与用户，专注于构建兼具美感和功能性的视觉体验。本作品是为海棠节社团纳新活动设计的外语学习游戏卡片，旨在通过视觉互动激发参与兴趣。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>校园经历</h2>
+            </div>
+            <div class="experience-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="date">2025.5</div>
+                        <h3>担任国际文化节蒙古国展屋总负责人</h3>
+                        <p>2025年5月，组织35名以上同学成功策划并执行了为期一天的文化展示、体验与展卖活动。此次活动全面锻炼了我的大型项目领导力、跨文化团队协调能力与现场执行力</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="date">2025.3 - 至今</div>
+                        <h3>国际教育新媒体中心 - 主席团成员</h3>
+                        <p>独立运营学院官微，提升影响力与互动率；并成功策划执行海棠节大型纳新活动，领导力与执行力获显著提升。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="date">2024.3 - 2025.3</div>
+                        <h3>教育新媒体中心 - 新闻采编部部长</h3>
+                        <p>管理15人团队，负责学院新闻采编、专题报道及活动宣传。优化团队协作流程，提高新闻产出效率和质量。获评"年度优秀部长"。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>联系我</h2>
+            </div>
+            <div class="contact-content">
+                <p>如果您对我的项目或技能感兴趣，欢迎通过以下方式与我联系。</p>
+                <a href="mailto:6322000326@tju.edu.cn" class="btn">发送邮件</a>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>6322000326@tju.edu.cn</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>天津大学</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        <span>蒙古国</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 D.Erdenezaya 保留所有权利</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const text = "Welcome to zaya's page!";
+            const welcomeText = document.getElementById('welcome-text');
+            const splashScreen = document.getElementById('splash-screen');
+            let i = 0;
+            
+            function typeWriter() {
+                if (i < text.length) {
+                    welcomeText.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 100);
+                } else {
+                    const cursor = document.createElement('span');
+                    cursor.className = 'cursor';
+                    welcomeText.appendChild(cursor);
+                    
+                    setTimeout(function() {
+                        splashScreen.style.opacity = '0';
+                        setTimeout(function() {
+                            splashScreen.style.display = 'none';
+                        }, 1000);
+                    }, 2000);
+                }
+            }
+            
+            setTimeout(typeWriter, 500);
+        });
+
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.padding = '10px 0';
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+            } else {
+                header.style.padding = '20px 0';
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
