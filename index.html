@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>zaya's page</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Notyf CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
     <style>
@@ -18,13 +18,14 @@
             --accent: #615ced;
             --card-bg: #ffffff;
             --border: #e2e8f0;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
@@ -51,11 +52,12 @@
         
         .welcome-container {
             text-align: center;
+            padding: 0 20px;
         }
         
         .welcome-text {
             font-family: 'Orbitron', sans-serif;
-            font-size: 4rem;
+            font-size: clamp(1.5rem, 8vw, 4rem);
             font-weight: 700;
             color: white;
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
@@ -63,7 +65,7 @@
             overflow: hidden;
             white-space: nowrap;
             margin: 0 auto;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.1em;
         }
         
         .cursor {
@@ -94,8 +96,8 @@
             background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            padding: 20px 0;
-            transition: all 0.3s ease;
+            padding: 16px 0;
+            transition: var(--transition);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             border-bottom: 1px solid var(--border);
         }
@@ -107,7 +109,7 @@
         }
         
         .logo {
-            font-size: 24px;
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
             font-weight: 700;
             color: var(--secondary);
             font-family: 'Orbitron', sans-serif;
@@ -119,15 +121,16 @@
         }
         
         .nav-links li {
-            margin-left: 30px;
+            margin-left: clamp(15px, 3vw, 30px);
         }
         
         .nav-links a {
             color: var(--light);
             text-decoration: none;
-            font-size: 16px;
-            transition: color 0.3s ease;
+            font-size: clamp(0.875rem, 2.5vw, 1rem);
+            transition: var(--transition);
             position: relative;
+            font-weight: 500;
         }
         
         .nav-links a:hover {
@@ -142,7 +145,7 @@
             bottom: -5px;
             left: 0;
             background-color: var(--secondary);
-            transition: width 0.3s ease;
+            transition: var(--transition);
         }
         
         .nav-links a:hover::after {
@@ -160,16 +163,18 @@
         
         .hero-content {
             max-width: 600px;
-            text-align: center;
+            text-align: justify;
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding: 0 20px;
         }
         
         .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
+            font-size: clamp(2rem, 8vw, 3rem);
+            margin-bottom: 16px;
             color: var(--secondary);
+            font-weight: 700;
         }
         
         .hero-info-line {
@@ -178,58 +183,61 @@
             align-items: center;
             flex-wrap: wrap;
             margin-bottom: 20px;
-            gap: 20px;
+            gap: clamp(10px, 2vw, 20px);
         }
         
         .hero-info-item {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             color: var(--gray);
-            font-size: 18px;
+            font-size: clamp(0.875rem, 2.5vw, 1.125rem);
         }
         
         .hero-info-item i {
             color: var(--secondary);
+            font-size: clamp(0.875rem, 2.5vw, 1rem);
         }
         
         .hero p {
-            font-size: 18px;
-            margin-bottom: 30px;
+            font-size: clamp(1rem, 3vw, 1.125rem);
+            margin-bottom: 24px;
             color: var(--gray);
             max-width: 600px;
+            line-height: 1.7;
         }
         
         .btn {
             display: inline-block;
-            padding: 12px 28px;
+            padding: 10px 24px;
             background-color: transparent;
             color: var(--secondary);
             border: 1px solid var(--secondary);
             border-radius: 6px;
             text-decoration: none;
-            font-size: 16px;
-            transition: all 0.3s ease;
+            font-size: clamp(0.875rem, 2.5vw, 1rem);
+            transition: var(--transition);
             cursor: pointer;
             font-weight: 500;
         }
         
         .btn:hover {
             background-color: rgba(94, 81, 211, 0.1);
+            transform: translateY(-2px);
         }
         
         section {
-            padding: 100px 0;
+            padding: clamp(60px, 12vw, 100px) 0;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: clamp(40px, 8vw, 60px);
             position: relative;
         }
         
         .section-title h2 {
-            font-size: 36px;
+            font-size: clamp(1.75rem, 6vw, 2.25rem);
             color: var(--secondary);
             display: inline-block;
             font-weight: 600;
@@ -241,43 +249,51 @@
             width: 50%;
             height: 3px;
             background-color: var(--accent);
-            margin: 15px auto;
+            margin: 12px auto;
             border-radius: 3px;
         }
         
         .about-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            grid-template-columns: 1fr;
+            gap: 30px;
             align-items: center;
         }
         
+        @media (min-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 50px;
+            }
+        }
+        
         .about-text p {
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             color: var(--gray);
             line-height: 1.8;
+            font-size: clamp(1rem, 3vw, 1.125rem);
         }
         
         .skills {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 20px;
+            gap: 8px;
+            margin-top: 16px;
             justify-content: center;
         }
         
         .skill-tag {
             background-color: rgba(94, 81, 211, 0.1);
             color: var(--secondary);
-            padding: 8px 16px;
+            padding: 6px 14px;
             border-radius: 20px;
-            font-size: 14px;
+            font-size: clamp(0.75rem, 2vw, 0.875rem);
             font-weight: 500;
         }
         
         .about-image {
             width: 100%;
-            height: 300px;
+            height: clamp(200px, 40vw, 300px);
             border-radius: 12px;
             overflow: hidden;
             display: flex;
@@ -294,164 +310,291 @@
         
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+        
+        @media (min-width: 768px) {
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+                gap: 24px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+                gap: 30px;
+            }
         }
         
         .project-card {
             background-color: var(--card-bg);
             border-radius: 12px;
             overflow: hidden;
-            transition: transform 0.3s ease;
+            transition: var(--transition);
             border: 1px solid var(--border);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
             cursor: pointer;
         }
         
         .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
         }
         
         .project-img {
-            height: 200px;
+            height: 180px;
             background-color: var(--dark);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--secondary);
-            font-size: 40px;
+            font-size: 32px;
+        }
+        
+        @media (min-width: 768px) {
+            .project-img {
+                height: 200px;
+                font-size: 40px;
+            }
         }
         
         .project-info {
-            padding: 25px;
+            padding: 20px;
+        }
+        
+        @media (min-width: 768px) {
+            .project-info {
+                padding: 25px;
+            }
         }
         
         .project-info h3 {
-            font-size: 22px;
-            margin-bottom: 12px;
+            font-size: clamp(1.25rem, 4vw, 1.375rem);
+            margin-bottom: 10px;
             color: var(--secondary);
             font-weight: 600;
         }
         
         .project-info p {
             color: var(--gray);
-            margin-bottom: 15px;
-            line-height: 1.7;
+            margin-bottom: 12px;
+            line-height: 1.6;
+            font-size: clamp(0.875rem, 2.5vw, 1rem);
         }
         
         .project-tech {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 15px;
+            gap: 6px;
+            margin-bottom: 12px;
         }
         
         .tech-tag {
             background-color: rgba(100, 116, 139, 0.1);
             color: var(--gray);
-            padding: 6px 12px;
+            padding: 4px 10px;
             border-radius: 20px;
-            font-size: 13px;
+            font-size: clamp(0.75rem, 2vw, 0.8125rem);
             font-weight: 500;
         }
         
         .project-links {
             display: flex;
-            gap: 15px;
+            gap: 12px;
         }
         
         .project-link {
             color: var(--secondary);
             text-decoration: none;
-            font-size: 14px;
+            font-size: clamp(0.8125rem, 2.2vw, 0.875rem);
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 4px;
             font-weight: 500;
         }
         
         .training-content {
             background-color: var(--card-bg);
             border-radius: 12px;
-            padding: 30px;
+            padding: 24px;
             border: 1px solid var(--border);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
         }
         
+        @media (min-width: 768px) {
+            .training-content {
+                padding: 30px;
+            }
+        }
+        
         .training-item {
-            margin-bottom: 30px;
+            margin-bottom: 24px;
+        }
+        
+        .training-item:last-child {
+            margin-bottom: 0;
         }
         
         .training-item h3 {
-            font-size: 22px;
+            font-size: clamp(1.25rem, 4vw, 1.375rem);
             color: var(--secondary);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             font-weight: 600;
         }
         
         .training-item p {
             color: var(--gray);
-            line-height: 1.7;
+            line-height: 1.6;
+            font-size: clamp(0.875rem, 2.5vw, 1rem);
+        }
+
+        /* Design Showcase Section */
+        #design-showcase {
+            background-color: var(--card-bg);
+        }
+
+        .design-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 20px;
+            padding: 20px 0;
+            scrollbar-width: thin;
+            scrollbar-color: var(--secondary) transparent;
+        }
+
+        .design-slider::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .design-slider::-webkit-scrollbar-thumb {
+            background-color: var(--secondary);
+            border-radius: 4px;
+        }
+
+        .design-slide {
+            scroll-snap-align: start;
+            flex: 0 0 auto;
+            width: auto; /* 宽度根据图片比例自动计算 */
+            height: 400px; /* 高度统一为400px */
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .design-slide:hover {
+            transform: scale(1.02);
+        }
+
+        .design-slide img {
+            width: auto; /* 宽度根据图片比例自动计算 */
+            height: 100%; /* 图片高度填充容器 */
+            object-fit: contain; /* 确保图片按比例显示 */
+        }
+
+        .design-caption {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 0.9rem;
+            color: var(--gray);
         }
         
         .honors-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+        
+        @media (min-width: 768px) {
+            .honors-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 24px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .honors-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 30px;
+            }
         }
         
         .honor-card {
             background-color: var(--card-bg);
             border-radius: 12px;
-            padding: 30px;
+            padding: 24px;
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: var(--transition);
             border: 1px solid var(--border);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
         }
         
         .honor-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
         }
         
         .honor-icon {
-            font-size: 40px;
+            font-size: 32px;
             color: var(--accent);
-            margin-bottom: 20px;
+            margin-bottom: 16px;
+        }
+        
+        @media (min-width: 768px) {
+            .honor-icon {
+                font-size: 40px;
+                margin-bottom: 20px;
+            }
         }
         
         .honor-card h3 {
-            font-size: 22px;
+            font-size: clamp(1.25rem, 4vw, 1.375rem);
             color: var(--secondary);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             font-weight: 600;
         }
         
         .honor-card p {
             color: var(--gray);
-            line-height: 1.7;
+            line-height: 1.6;
+            font-size: clamp(0.875rem, 2.5vw, 1rem);
         }
         
         .honor-date {
             color: var(--accent);
-            font-size: 14px;
-            margin-top: 15px;
+            font-size: clamp(0.8125rem, 2.2vw, 0.875rem);
+            margin-top: 12px;
             font-weight: 500;
         }
         
         .hobbies-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+        
+        @media (min-width: 768px) {
+            .hobbies-grid {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+                gap: 24px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .hobbies-grid {
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+                gap: 30px;
+            }
         }
         
         .hobby-card {
             background-color: var(--card-bg);
             border-radius: 12px;
             overflow: hidden;
-            transition: transform 0.3s ease;
+            transition: var(--transition);
             border: 1px solid var(--border);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
             display: flex;
@@ -460,12 +603,12 @@
         }
         
         .hobby-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
         }
         
         .hobby-img {
-            height: 250px;
+            height: 200px;
             background-color: var(--dark);
             display: flex;
             align-items: center;
@@ -473,11 +616,17 @@
             overflow: hidden;
         }
         
+        @media (min-width: 768px) {
+            .hobby-img {
+                height: 250px;
+            }
+        }
+        
         .hobby-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: var(--transition);
         }
         
         .hobby-card:hover .hobby-img img {
@@ -485,16 +634,22 @@
         }
         
         .hobby-info {
-            padding: 25px;
+            padding: 20px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
         
+        @media (min-width: 768px) {
+            .hobby-info {
+                padding: 25px;
+            }
+        }
+        
         .hobby-info h3 {
-            font-size: 22px;
+            font-size: clamp(1.25rem, 4vw, 1.375rem);
             color: var(--secondary);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             position: relative;
             display: inline-block;
             font-weight: 600;
@@ -503,25 +658,34 @@
         .hobby-info h3::after {
             content: '';
             position: absolute;
-            width: 40px;
+            width: 30px;
             height: 3px;
             background-color: var(--accent);
-            bottom: -8px;
+            bottom: -6px;
             left: 0;
             border-radius: 3px;
+        }
+        
+        @media (min-width: 768px) {
+            .hobby-info h3::after {
+                width: 40px;
+                bottom: -8px;
+            }
         }
         
         .hobby-info p {
             color: var(--gray);
             flex-grow: 1;
-            line-height: 1.7;
-            margin-top: 15px;
+            line-height: 1.6;
+            margin-top: 12px;
+            font-size: clamp(0.875rem, 2.5vw, 1rem);
         }
         
         .experience-timeline {
             position: relative;
             max-width: 800px;
             margin: 0 auto;
+            padding: 0 20px;
         }
         
         .experience-timeline::before {
@@ -537,126 +701,116 @@
         
         .timeline-item {
             display: flex;
-            margin-bottom: 40px;
+            margin-bottom: 32px;
             position: relative;
+            flex-direction: column;
+            align-items: center;
         }
         
-        .timeline-item:nth-child(odd) {
-            justify-content: flex-start;
-        }
-        
-        .timeline-item:nth-child(even) {
-            justify-content: flex-end;
+        @media (min-width: 768px) {
+            .timeline-item {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+            
+            .timeline-item:nth-child(odd) {
+                justify-content: flex-start;
+            }
+            
+            .timeline-item:nth-child(even) {
+                justify-content: flex-end;
+            }
         }
         
         .timeline-content {
             background-color: var(--card-bg);
             border-radius: 12px;
-            padding: 25px;
-            width: 45%;
+            padding: 20px;
+            width: 100%;
             border: 1px solid var(--border);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+            margin-top: 20px;
+        }
+        
+        @media (min-width: 768px) {
+            .timeline-content {
+                width: 45%;
+                margin-top: 0;
+            }
         }
         
         .timeline-content h3 {
-            font-size: 20px;
+            font-size: clamp(1.125rem, 3.5vw, 1.25rem);
             color: var(--secondary);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             font-weight: 600;
         }
         
         .timeline-content .date {
             color: var(--accent);
-            font-size: 14px;
-            margin-bottom: 10px;
+            font-size: clamp(0.8125rem, 2.2vw, 0.875rem);
+            margin-bottom: 8px;
             font-weight: 500;
         }
         
         .timeline-content p {
             color: var(--gray);
-            line-height: 1.7;
+            line-height: 1.6;
+            font-size: clamp(0.875rem, 2.5vw, 1rem);
         }
         
         .contact-content {
             text-align: center;
             max-width: 600px;
             margin: 0 auto;
+            padding: 0 20px;
         }
         
         .contact-content p {
             color: var(--gray);
-            margin-bottom: 30px;
-            line-height: 1.7;
+            margin-bottom: 24px;
+            line-height: 1.6;
+            font-size: clamp(1rem, 3vw, 1.125rem);
         }
         
         .contact-icons {
             display: flex;
             justify-content: center;
-            gap: 40px;
-            margin-top: 30px;
+            gap: 32px;
+            margin-top: 24px;
             font-size: 28px;
             cursor: pointer;
-            transition: transform 0.2s ease;
+        }
+        
+        @media (min-width: 768px) {
+            .contact-icons {
+                gap: 40px;
+                font-size: 32px;
+            }
         }
         
         .contact-icon {
             color: var(--secondary);
-            transition: transform 0.2s ease, color 0.2s ease;
+            transition: var(--transition);
         }
         
         .contact-icon:hover {
             color: var(--accent);
-            transform: scale(1.2);
-        }
-        
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--gray);
-            font-weight: 500;
-        }
-        
-        .contact-item i {
-            color: var(--accent);
-            font-size: 20px;
+            transform: scale(1.15);
         }
         
         footer {
             text-align: center;
-            padding: 30px 0;
+            padding: 24px 0;
             border-top: 1px solid var(--border);
             color: var(--gray);
-            font-size: 14px;
+            font-size: clamp(0.8125rem, 2.2vw, 0.875rem);
         }
         
-        @media (max-width: 768px) {
+        /* Mobile menu for very small screens */
+        @media (max-width: 767px) {
             .nav-links {
                 display: none;
-            }
-            
-            .hero h1 {
-                font-size: 36px;
-            }
-            
-            .hero-info-line {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .projects-grid, .honors-grid, .hobbies-grid {
-                grid-template-columns: 1fr;
             }
             
             .experience-timeline::before {
@@ -664,25 +818,13 @@
             }
             
             .timeline-item {
-                justify-content: flex-start !important;
+                align-items: flex-start;
                 padding-left: 40px;
             }
             
-            .timeline-content {
-                width: 100%;
-            }
-            
-            .contact-info {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
             .contact-icons {
-                gap: 30px;
-            }
-            
-            .welcome-text {
-                font-size: 2.5rem;
+                gap: 24px;
+                font-size: 24px;
             }
         }
     </style>
@@ -700,13 +842,14 @@
                 <div class="logo">D.Erdenezaya</div>
                 <ul class="nav-links">
                     <li><a href="#home">首页</a></li>
-                    <li><a href="#about">关于我</a></li>
+                    <li><a href="#about">教育背景</a></li>
                     <li><a href="#projects">项目经历</a></li>
                     <li><a href="#training">实训经历</a></li>
+                    <li><a href="#design-showcase">设计展示</a></li>
                     <li><a href="#honors">荣誉奖项</a></li>
                     <li><a href="#hobbies">兴趣爱好</a></li>
-                    <li><a href="#experience">社团经历</a></li>
-                    <li><a href="#contact">联系我</a></li>
+                    <li><a href="#experience">校园经历</a></li>
+                    <li><a href="#contact">联系方式</a></li>
                 </ul>
             </nav>
         </div>
@@ -717,10 +860,6 @@
             <div class="hero-content">
                 <h1>吉雅D.Erdenezaya</h1>
                 <div class="hero-info-line">
-                    <div class="hero-info-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>6322000326@tju.edu.cn</span>
-                    </div>
                     <div class="hero-info-item">
                         <i class="fas fa-globe"></i>
                         <span>蒙古国</span>
@@ -734,7 +873,7 @@
                         <span>软件工程</span>
                     </div>
                 </div>
-                <p>热爱技术与创造的软件工程专业大四学生，具备扎实的全栈开发能力与项目实践经验，专注于智能系统、微服务架构与用户体验优化。</p>
+                <p>热爱技术与创造的软件工程专业大四学生，具备扎实的前端开发与系统设计能力。致力于探索以用户为中心的设计方法，并擅长通过技术原型验证设计方案的可行性与用户体验。希望深入研究交互设计、人机交互、智能体交互等前沿领域。</p>
                 <a href="#projects" class="btn">查看我的项目</a>
             </div>
         </div>
@@ -743,12 +882,12 @@
     <section id="about">
         <div class="container">
             <div class="section-title">
-                <h2>关于我</h2>
+                <h2>教育背景</h2>
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <p>蒙古国留学生，目前就读于天津大学软件工程专业，即将攻读研究生学位。拥有扎实的计算机科学基础和丰富的项目开发经验。</p>
-                    <p>主修课程包括软件工程(双语)、设计模式、软件测试技术、操作系统原理、数据库原理、数据结构、算法设计与分析、计算机系统基础等。</p>
+                    <p>技术核心课程包括设计模式、软件测试技术、操作系统原理、数据库原理、数据结构、算法设计与分析、计算机系统基础等。</p>
+                    <p>设计交叉课程包括数字媒体设计与创意表现、软件工程、软件工程综合实践和计算机视觉等。</p>
                     <p>掌握了系统化软件开发流程设计能力、面向对象设计原则与模式应用能力、自动化测试用例编写与执行能力。</p>
                     <div class="skills">
                         <span class="skill-tag">CSS</span>
@@ -884,6 +1023,108 @@
         </div>
     </section>
 
+    <!-- 新增：设计部分展示 -->
+    <section id="design-showcase">
+        <div class="container">
+            <div class="section-title">
+                <h2>设计展示</h2>
+            </div>
+            <div class="design-slider">
+                <div class="design-slide">
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E9%A6%96%E9%A1%B5.png" alt="前端设计图 1">
+                </div>
+                <div class="design-slide">
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E5%95%86%E5%AE%B6%E5%88%97%E8%A1%A8.png" alt="前端设计图 2">
+                </div>
+                <div class="design-slide">
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E5%95%86%E5%93%81%E5%88%97%E8%A1%A8.png" alt="前端设计图 3">
+                </div>
+                <div class="design-slide">
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E5%9C%B0%E5%9D%80.png" alt="前端设计图 4">
+                </div>
+                <div class="design-slide">
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E7%A1%AE%E8%AE%A4%E6%94%AF%E4%BB%98.png" alt="前端设计图 5">
+                </div>
+                <div class="design-slide">
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E5%8E%86%E5%8F%B2%E8%AE%A2%E5%8D%95.png" alt="前端设计图 6">
+                </div>
+                <div class="design-slide">
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E8%B4%A6%E6%88%B7%E4%BF%A1%E6%81%AF.png" alt="前端设计图 7">
+                </div>
+                <div class="design-slide">
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E7%BC%96%E8%BE%91%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF.png" alt="前端设计图 8">
+                </div>
+                <div class="design-slide">
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E6%9B%B4%E6%8D%A2%E5%A4%B4%E5%83%8F.png" alt="前端设计图 9">
+                </div>
+                <div class="design-slide">
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E7%A7%AF%E5%88%86.png" alt="前端设计图 10">
+                </div>
+                <div class="design-slide">
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E9%92%B1%E5%8C%85.png" alt="前端设计图 11">
+                </div>
+                <div class="design-slide">
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E9%AA%91%E6%89%8B%E9%A6%96%E9%A1%B5.png" alt="前端设计图 12">
+                </div>
+                <div class="design-slide">
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E9%AA%91%E6%89%8B%E7%A1%AE%E8%AE%A4%E9%80%81%E8%BE%BE.png" alt="前端设计图 13">
+                </div>
+                <div class="design-slide">
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E9%AA%91%E6%89%8B%E5%B7%B2%E9%80%81%E8%BE%BE.png" alt="前端设计图 14">
+                </div>
+                <div class="design-slide">
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E9%AA%91%E6%89%8B%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF.png" alt="前端设计图 15">
+                </div>
+                <div class="design-slide">
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E9%AA%91%E6%89%8B%E9%92%B1%E5%8C%85%E6%8F%90%E7%8E%B0.png" alt="前端设计图 16">
+                </div>
+                <div class="design-slide"> 
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFb%E7%AB%AF%E5%95%86%E5%AE%B6%E7%99%BB%E5%BD%95.png" alt="前端设计图 17"></img>
+                </div>
+                <div class="design-slide"> 
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFb%E7%AB%AF%E6%88%BF%E6%BA%90%E7%AE%A1%E7%90%86.png" alt="前端设计图 18"></img>
+                </div>
+                <div class="design-slide"> 
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFb%E7%AB%AF%E6%B7%BB%E5%8A%A0%E6%88%BF%E6%BA%90.png" alt="前端设计图 19"></img>
+                </div>
+                <div class="design-slide"> 
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFb%E7%AB%AF%E6%88%BF%E5%9E%8B%E7%AE%A1%E7%90%86.png" alt="前端设计图 20"></img>
+                </div>
+                <div class="design-slide"> 
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFb%E7%AB%AF%E6%B7%BB%E5%8A%A0%E6%88%BF%E5%9E%8B.png" alt="前端设计图 21"></img>
+                </div>
+                <div class="design-slide"> 
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFb%E7%AB%AF%E8%AE%A2%E5%8D%95%E7%AE%A1%E7%90%86.png" alt="前端设计图 22"></img>
+                </div>
+                <div class="design-slide"> 
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFb%E7%AB%AF%E5%95%86%E5%AE%B6%E4%BF%A1%E6%81%AF%E7%AE%A1%E7%90%86.png" alt="前端设计图 23"></img>
+                </div>
+                <div class="design-slide"> 
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFc%E7%AB%AF%E7%99%BB%E5%BD%95.png" alt="前端设计图 24"></img>
+                </div>
+                <div class="design-slide"> 
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFc%E7%AB%AF%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF.png" alt="前端设计图 25"></img>
+                </div>
+                <div class="design-slide"> 
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFc%E7%AB%AF%E7%BC%96%E8%BE%91%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF.png" alt="前端设计图 26"></img>
+                </div>
+                <div class="design-slide"> 
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFc%E7%AB%AF%E6%9B%B4%E6%8D%A2%E5%90%8D%E5%AD%97.png" alt="前端设计图 27"></img>
+                </div>
+                <div class="design-slide"> 
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFc%E7%AB%AF%E6%80%A7%E5%88%AB%E8%AE%BE%E7%BD%AE.png" alt="前端设计图 28"></img>
+                </div>
+                <div class="design-slide"> 
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFc%E7%AB%AF%E8%B4%A6%E6%88%B7%E4%B8%8E%E5%AE%89%E5%85%A8.png" alt="前端设计图 29"></img>
+                </div>
+                <div class="design-slide"> 
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFc%E7%AB%AF%E6%9B%B4%E6%94%B9%E5%AF%86%E7%A0%81.png" alt="前端设计图 30"></img>
+                </div>
+            </div>
+            <div class="design-caption">左右滑动查看设计图</div>
+        </div>
+    </section>
+
     <section id="honors">
         <div class="container">
             <div class="section-title">
@@ -895,7 +1136,7 @@
                         <i class="fas fa-trophy"></i>
                     </div>
                     <h3>天津大学优秀留学生奖</h3>
-                    <p>连续两个学年获得天津大学优秀留学生奖学金，表彰在课程，学术和课外活动中的卓越表现。</p>
+                    <p>连续两个学年获得天津大学优秀留学生奖学金，表彰在学术和课外活动中的卓越表现。</p>
                     <div class="honor-date">2022-2024</div>
                 </div>
                 <div class="honor-card">
@@ -1092,7 +1333,7 @@
                 header.style.padding = '10px 0';
                 header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
             } else {
-                header.style.padding = '20px 0';
+                header.style.padding = '16px 0';
                 header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
             }
         });
@@ -1113,6 +1354,4 @@
 
 </body>
 </html>
-
-
 
