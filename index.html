@@ -118,6 +118,7 @@
         .nav-links {
             display: flex;
             list-style: none;
+            align-items: center;
         }
         
         .nav-links li {
@@ -150,6 +151,35 @@
         
         .nav-links a:hover::after {
             width: 100%;
+        }
+        
+        /* Language Switcher Styles */
+        .language-switcher {
+            display: flex;
+            margin-left: clamp(15px, 3vw, 30px);
+        }
+        
+        .language-btn {
+            background: transparent;
+            border: 1px solid var(--secondary);
+            color: var(--secondary);
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: clamp(0.75rem, 2vw, 0.875rem);
+            font-weight: 500;
+            margin: 0 2px;
+        }
+        
+        .language-btn:hover {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .language-btn.active {
+            background-color: var(--secondary);
+            color: white;
         }
         
         .hero {
@@ -272,6 +302,7 @@
             color: var(--gray);
             line-height: 1.8;
             font-size: clamp(1rem, 3vw, 1.125rem);
+            text-align: justify;
         }
         
         .skills {
@@ -386,10 +417,11 @@
         }
         
         .project-info p {
-            color: var (--gray);
+            color: var(--gray);
             margin-bottom: 12px;
             line-height: 1.6;
             font-size: clamp(0.875rem, 2.5vw, 1rem);
+            text-align: justify;
         }
         
         .project-tech {
@@ -457,6 +489,7 @@
             color: var(--gray);
             line-height: 1.6;
             font-size: clamp(0.875rem, 2.5vw, 1rem);
+            text-align: justify;
         }
 
         /* Design Showcase Section */
@@ -572,6 +605,7 @@
             color: var(--gray);
             line-height: 1.6;
             font-size: clamp(0.875rem, 2.5vw, 1rem);
+            text-align: justify;
         }
         
         .honor-date {
@@ -690,6 +724,7 @@
             line-height: 1.6;
             margin-top: 12px;
             font-size: clamp(0.875rem, 2.5vw, 1rem);
+            text-align: justify;
         }
         
         .experience-timeline {
@@ -768,6 +803,7 @@
             color: var(--gray);
             line-height: 1.6;
             font-size: clamp(0.875rem, 2.5vw, 1rem);
+            text-align: justify;
         }
         
         .contact-content {
@@ -873,6 +909,30 @@
                 text-align: center;
                 margin: 10px 0;
             }
+
+            .language-switcher {
+                display: flex;
+                margin-left: auto;
+                margin-right: 10px;
+            }
+            
+            nav {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .logo {
+                order: -2;
+            }
+            
+            .language-switcher {
+                order: -1;
+            }
+            
+            .menu-toggle {
+                order: 0;
+            }
         }
     </style>
 </head>
@@ -887,19 +947,23 @@
         <div class="container">
             <nav>
                 <div class="logo">D.Erdenezaya</div>
+                <div class="language-switcher">
+                    <button class="language-btn active" data-lang="zh">中文</button>
+                    <button class="language-btn" data-lang="en">EN</button>
+                </div>
                 <div class="menu-toggle" id="mobile-menu">
                     <i class="fas fa-bars"></i>
                 </div>
                 <ul class="nav-links">
-                    <li><a href="#home">首页</a></li>
-                    <li><a href="#about">教育背景</a></li>
-                    <li><a href="#projects">项目经历</a></li>
-                    <li><a href="#training">实训经历</a></li>
-                    <li><a href="#design-showcase">设计展示</a></li>
-                    <li><a href="#honors">荣誉奖项</a></li>
-                    <li><a href="#hobbies">兴趣爱好</a></li>
-                    <li><a href="#experience">校园经历</a></li>
-                    <li><a href="#contact">联系方式</a></li>
+                    <li><a href="#home" data-zh="首页" data-en="Home">首页</a></li>
+                    <li><a href="#about" data-zh="教育背景" data-en="Education">教育背景</a></li>
+                    <li><a href="#projects" data-zh="项目经历" data-en="Projects">项目经历</a></li>
+                    <li><a href="#training" data-zh="实训经历" data-en="Training">实训经历</a></li>
+                    <li><a href="#design-showcase" data-zh="设计展示" data-en="Design">设计展示</a></li>
+                    <li><a href="#honors" data-zh="荣誉奖项" data-en="Honors">荣誉奖项</a></li>
+                    <li><a href="#hobbies" data-zh="兴趣爱好" data-en="Hobbies">兴趣爱好</a></li>
+                    <li><a href="#experience" data-zh="校园经历" data-en="Experience">校园经历</a></li>
+                    <li><a href="#contact" data-zh="联系方式" data-en="Contact">联系方式</a></li>
                 </ul>
             </nav>
         </div>
@@ -908,23 +972,26 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>吉雅D.Erdenezaya</h1>
+                <h1 data-zh="吉雅D.Erdenezaya" data-en="D.Erdenezaya">吉雅D.Erdenezaya</h1>
                 <div class="hero-info-line">
                     <div class="hero-info-item">
                         <i class="fas fa-globe"></i>
-                        <span>蒙古国</span>
+                        <span data-zh="蒙古国" data-en="Mongolia">蒙古国</span>
                     </div>
                     <div class="hero-info-item">
                         <i class="fas fa-university"></i>
-                        <span>天津大学</span>
+                        <span data-zh="天津大学" data-en="Tianjin University">天津大学</span>
                     </div>
                     <div class="hero-info-item">
                         <i class="fas fa-graduation-cap"></i>
-                        <span>软件工程</span>
+                        <span data-zh="软件工程" data-en="Software Engineering">软件工程</span>
                     </div>
                 </div>
-                <p>热爱技术与创造的软件工程专业大四学生，具备扎实的全栈开发与系统设计能力。致力于探索以用户为中心的设计方法，并擅长通过技术原型验证设计方案的可行性与用户体验。希望深入研究交互设计、人机交互、智能体交互等前沿领域。</p>
-                <a href="#projects" class="btn">查看我的项目</a>
+                <p data-zh="热爱技术与创造的软件工程专业大四学生，具备扎实的全栈开发与系统设计能力。致力于探索以用户为中心的设计方法，并擅长通过技术原型验证设计方案的可行性与用户体验。希望深入研究交互设计、人机交互、智能体交互等前沿领域。" 
+                   data-en="A senior software engineering student passionate about technology and creation, with solid full-stack development and system design capabilities. Committed to exploring user-centered design methods and skilled at validating design feasibility and user experience through technical prototypes. Hope to delve deeper into cutting-edge fields such as interaction design, human-computer interaction, and agent interaction.">
+                   热爱技术与创造的软件工程专业大四学生，具备扎实的全栈开发与系统设计能力。致力于探索以用户为中心的设计方法，并擅长通过技术原型验证设计方案的可行性与用户体验。希望深入研究交互设计、人机交互、智能体交互等前沿领域。
+                </p>
+                <a href="#projects" class="btn" data-zh="查看我的项目" data-en="View My Projects">查看我的项目</a>
             </div>
         </div>
     </section>
@@ -932,13 +999,22 @@
     <section id="about">
         <div class="container">
             <div class="section-title">
-                <h2>教育背景</h2>
+                <h2 data-zh="教育背景" data-en="Education Background">教育背景</h2>
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <p>技术核心课程包括设计模式、软件测试技术、操作系统原理、数据库原理、数据结构、算法设计与分析、计算机系统基础等。</p>
-                    <p>设计交叉课程包括数字媒体设计与创意表现、软件工程、软件工程综合实践和计算机视觉等。</p>
-                    <p>掌握了系统化软件开发流程设计能力、面向对象设计原则与模式应用能力、自动化测试用例编写与执行能力。</p>
+                    <p data-zh="技术核心课程包括设计模式、软件测试技术、操作系统原理、数据库原理、数据结构、算法设计与分析、计算机系统基础等。" 
+                       data-en="Core technical courses include Design Patterns, Software Testing Techniques, Operating System Principles, Database Principles, Data Structures, Algorithm Design and Analysis, Computer System Fundamentals, etc.">
+                       技术核心课程包括设计模式、软件测试技术、操作系统原理、数据库原理、数据结构、算法设计与分析、计算机系统基础等。
+                    </p>
+                    <p data-zh="设计交叉课程包括数字媒体设计与创意表现、软件工程、软件工程综合实践和计算机视觉等。" 
+                       data-en="Design interdisciplinary courses include Digital Media Design and Creative Expression, Software Engineering, Comprehensive Software Engineering Practice, and Computer Vision, etc.">
+                       设计交叉课程包括数字媒体设计与创意表现、软件工程、软件工程综合实践和计算机视觉等。
+                    </p>
+                    <p data-zh="掌握了系统化软件开发流程设计能力、面向对象设计原则与模式应用能力、自动化测试用例编写与执行能力。" 
+                       data-en="Mastered systematic software development process design capabilities, object-oriented design principles and pattern application abilities, and automated test case writing and execution skills.">
+                       掌握了系统化软件开发流程设计能力、面向对象设计原则与模式应用能力、自动化测试用例编写与执行能力。
+                    </p>
                     <div class="skills">
                         <span class="skill-tag">CSS</span>
                         <span class="skill-tag">JavaScript</span>
@@ -954,7 +1030,7 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/main/%E5%9B%BE.jpg" alt="吉雅的个人照片">
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/main/%E5%9B%BE.jpg" alt="Personal Photo" data-zh-alt="吉雅的个人照片" data-en-alt="Personal Photo">
                 </div>
             </div>
         </div>
@@ -963,7 +1039,7 @@
     <section id="projects">
         <div class="container">
             <div class="section-title">
-                <h2>项目经历</h2>
+                <h2 data-zh="项目经历" data-en="Project Experience">项目经历</h2>
             </div>
             <div class="projects-grid">
                 <div class="project-card" onclick="window.open('https://gitee.com/sssun-jianan/2024tju', '_blank')">
@@ -971,9 +1047,12 @@
                         <i class="fas fa-utensils"></i>
                     </div>
                     <div class="project-info">
-                        <h3>"饿了吧"外卖点餐系统</h3>
-                        <span class="project-role">前端工程师</span>
-                        <p>基于Vue3+SpringBoot的前后端分离式在线订餐平台，修复并优化了原有系统的功能缺陷和交互问题。</p>
+                        <h3 data-zh="&quot;饿了吧&quot;外卖点餐系统" data-en='&quot;Hungry?&quot; Food Delivery System'>"饿了吧"外卖点餐系统</h3>
+                        <span class="project-role" data-zh="前端工程师" data-en="Frontend Engineer">前端工程师</span>
+                        <p data-zh="基于Vue3+SpringBoot的前后端分离式在线订餐平台，修复并优化了原有系统的功能缺陷和交互问题。" 
+                           data-en="A front-end and back-end separated online food ordering platform based on Vue3+SpringBoot, fixing and optimizing functional defects and interaction issues of the original system.">
+                           基于Vue3+SpringBoot的前后端分离式在线订餐平台，修复并优化了原有系统的功能缺陷和交互问题。
+                        </p>
                         <div class="project-tech">
                             <span class="tech-tag">Vue3</span>
                             <span class="tech-tag">SpringBoot</span>
@@ -981,7 +1060,7 @@
                         </div>
                         <div class="project-links">
                             <a href="https://gitee.com/sssun-jianan/2024tju" class="project-link" target="_blank">
-                                <i class="fa-solid fa-square-up-right"></i> 查看代码
+                                <i class="fa-solid fa-square-up-right"></i> <span data-zh="查看代码" data-en="View Code">查看代码</span>
                             </a>
                         </div>
                     </div>
@@ -992,9 +1071,12 @@
                         <i class="fas fa-wallet"></i>
                     </div>
                     <div class="project-info">
-                        <h3>"饿了吧"后端扩展</h3>
-                        <span class="project-role">后端工程师</span>
-                        <p>在现有系统基础上扩展电子钱包和积分系统，采用DDD充血模型设计高可用金融级功能模块。</p>
+                        <h3 data-zh="&quot;饿了吧&quot;后端扩展" data-en='&quot;Hungry?&quot; Backend Extension'>"饿了吧"后端扩展</h3>
+                        <span class="project-role" data-zh="后端工程师" data-en="Backend Engineer">后端工程师</span>
+                        <p data-zh="在现有系统基础上扩展电子钱包和积分系统，采用DDD充血模型设计高可用金融级功能模块。" 
+                           data-en="Extended electronic wallet and points system on the existing system foundation, using DDD domain model to design high-availability financial-grade functional modules.">
+                           在现有系统基础上扩展电子钱包和积分系统，采用DDD充血模型设计高可用金融级功能模块。
+                        </p>
                         <div class="project-tech">
                             <span class="tech-tag">Vue3</span>
                             <span class="tech-tag">SpringBoot</span>
@@ -1002,7 +1084,7 @@
                         </div>
                         <div class="project-links">
                             <a href="https://gitee.com/D-erdenezaya/ele" class="project-link" target="_blank">
-                                <i class="fa-solid fa-square-up-right"></i> 查看代码
+                                <i class="fa-solid fa-square-up-right"></i> <span data-zh="查看代码" data-en="View Code">查看代码</span>
                             </a>
                         </div>
                     </div>
@@ -1013,17 +1095,20 @@
                         <i class="fas fa-cloud"></i>
                     </div>
                     <div class="project-info">
-                        <h3>"饿了吧"微服务架构升级</h3>
-                        <span class="project-role">前端工程师</span>
-                        <p>将系统从SpringBoot单体应用重构为基于SpringCloud的微服务架构，提升系统可维护性和容错能力。</p>
+                        <h3 data-zh="&quot;饿了吧&quot;微服务架构升级" data-en='&quot;Hungry?&quot; Microservices Architecture Upgrade'>"饿了吧"微服务架构升级</h3>
+                        <span class="project-role" data-zh="前端工程师" data-en="Frontend Engineer">前端工程师</span>
+                        <p data-zh="将系统从SpringBoot单体应用重构为基于SpringCloud的微服务架构，提升系统可维护性和容错能力。" 
+                           data-en="Refactored the system from SpringBoot monolithic application to SpringCloud-based microservices architecture, improving system maintainability and fault tolerance.">
+                           将系统从SpringBoot单体应用重构为基于SpringCloud的微服务架构，提升系统可维护性和容错能力。
+                        </p>
                         <div class="project-tech">
                             <span class="tech-tag">Vue3</span>
                             <span class="tech-tag">SpringCloud</span>
-                            <span class="tech-tag">微服务</span>
+                            <span class="tech-tag" data-zh="微服务" data-en="Microservices">微服务</span>
                         </div>
                         <div class="project-links">
                             <a href="https://gitee.com/epwwwrrqpp/advanced-practice" class="project-link" target="_blank">
-                                <i class="fa-solid fa-square-up-right"></i> 查看代码
+                                <i class="fa-solid fa-square-up-right"></i> <span data-zh="查看代码" data-en="View Code">查看代码</span>
                             </a>
                         </div>
                     </div>
@@ -1034,18 +1119,21 @@
                         <i class="fas fa-home"></i>
                     </div>
                     <div class="project-info">
-                        <h3>基于微服务架构的民宿在线预订平台</h3>
-                        <span class="project-role">前端工程师</span>
-                        <p>基于Spring Cloud微服务架构，构建前后端分离的民宿预订平台。用户端实现从搜索、预订、支付到评价的全流程。商家端则提供房源、订单、退款及评论等后台管理功能，支持多角色协同操作。</p>
+                        <h3 data-zh="基于微服务架构的民宿在线预订平台" data-en="Microservices-Based Homestay Online Booking Platform">基于微服务架构的民宿在线预订平台</h3>
+                        <span class="project-role" data-zh="前端工程师" data-en="Frontend Engineer">前端工程师</span>
+                        <p data-zh="基于Spring Cloud微服务架构，构建前后端分离的民宿预订平台。用户端实现从搜索、预订、支付到评价的全流程。商家端则提供房源、订单、退款及评论等后台管理功能，支持多角色协同操作。" 
+                           data-en="Based on Spring Cloud microservices architecture, building a front-end and back-end separated homestay booking platform. The user side implements the complete process from search, booking, payment to review. The merchant side provides back-end management functions such as room management, order management, refund and review management, supporting multi-role collaborative operations.">
+                           基于Spring Cloud微服务架构，构建前后端分离的民宿预订平台。用户端实现从搜索、预订、支付到评价的全流程。商家端则提供房源、订单、退款及评论等后台管理功能，支持多角色协同操作。
+                        </p>
                         <div class="project-tech">
                             <span class="tech-tag">Vue3</span>
                             <span class="tech-tag">SpringCloud</span>
-                            <span class="tech-tag">微服务</span>
+                            <span class="tech-tag" data-zh="微服务" data-en="Microservices">微服务</span>
                             <span class="tech-tag">Gateway</span>
                         </div>
                         <div class="project-links">
                             <a href="https://gitee.com/wangfengtingwwfftt/homestaybookingback" class="project-link" target="_blank">
-                                <i class="fa-solid fa-square-up-right"></i> 查看代码
+                                <i class="fa-solid fa-square-up-right"></i> <span data-zh="查看代码" data-en="View Code">查看代码</span>
                             </a>
                         </div>
                     </div>
@@ -1057,43 +1145,52 @@
     <section id="training">
         <div class="container">
             <div class="section-title">
-                <h2>实训经历</h2>
+                <h2 data-zh="实训经历" data-en="Training Experience">实训经历</h2>
             </div>
             <div class="training-content">
                 <div class="training-item">
-                    <h3>飞腾信息技术有限公司实训</h3>
-                    <p>获得了飞腾平台深度并行开发工程师认证。通过实训掌握了飞腾派嵌入式开发、OpenCV图像处理、语音交互系统开发以及AI模型部署技术。</p>
+                    <h3 data-zh="飞腾信息技术有限公司实训" data-en="Phytium Information Technology Co., Ltd. Training">飞腾信息技术有限公司实训</h3>
+                    <p data-zh="获得了飞腾平台深度并行开发工程师认证。通过实训掌握了飞腾派嵌入式开发、OpenCV图像处理、语音交互系统开发以及AI模型部署技术。" 
+                       data-en="Obtained Phytium platform deep parallel development engineer certification. Through the training, mastered Phytium embedded development, OpenCV image processing, voice interaction system development, and AI model deployment technologies.">
+                       获得了飞腾平台深度并行开发工程师认证。通过实训掌握了飞腾派嵌入式开发、OpenCV图像处理、语音交互系统开发以及AI模型部署技术。
+                    </p>
                 </div>
                 <div class="training-item">
-                    <h3>交互式迷宫生成与路径查找可视化工具</h3>
-                    <p>开发了一个基于Python和Pygame的交互式迷宫生成与路径查找可视化工具。该项目核心实现了随机迷宫生成、自动路径规划及多种可视化模式，提供了一个直观探索图论算法的图形化平台。在该项目中，我主要负责核心算法实现、可视化功能及交互界面开发。</p>
+                    <h3 data-zh="交互式迷宫生成与路径查找可视化工具" data-en="Interactive Maze Generation and Pathfinding Visualization Tool">交互式迷宫生成与路径查找可视化工具</h3>
+                    <p data-zh="开发了一个基于Python和Pygame的交互式迷宫生成与路径查找可视化工具。该项目核心实现了随机迷宫生成、自动路径规划及多种可视化模式，提供了一个直观探索图论算法的图形化平台。在该项目中，我主要负责核心算法实现、可视化功能及交互界面开发。" 
+                       data-en="Developed an interactive maze generation and pathfinding visualization tool based on Python and Pygame. The project core implements random maze generation, automatic path planning, and multiple visualization modes, providing an intuitive graphical platform for exploring graph theory algorithms. In this project, I was mainly responsible for core algorithm implementation, visualization functions, and interactive interface development.">
+                       开发了一个基于Python和Pygame的交互式迷宫生成与路径查找可视化工具。该项目核心实现了随机迷宫生成、自动路径规划及多种可视化模式，提供了一个直观探索图论算法的图形化平台。在该项目中，我主要负责核心算法实现、可视化功能及交互界面开发。
+                    </p>
                     <div class="project-links">
                         <a href="https://github.com/erdenezaya123/maze" class="project-link" target="_blank">
-                            <i class="fa-solid fa-square-up-right"></i> 查看项目
+                            <i class="fa-solid fa-square-up-right"></i> <span data-zh="查看项目" data-en="View Project">查看项目</span>
                         </a>
                     </div>
                     <!-- 视频播放区域 -->
                     <div style="margin-top: 16px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
                         <video controls width="100%" poster="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E8%BF%B7%E5%AE%AB%E9%A1%B9%E7%9B%AE%E6%93%8D%E4%BD%9C%E8%BF%87%E7%A8%8B.png">
                             <source src="https://github.com/erdenezaya123/mysitephoto/raw/main/%E6%93%8D%E4%BD%9C%E8%BF%87%E7%A8%8B.mp4" type="video/mp4">
-                            您的浏览器不支持视频播放。
+                            <span data-zh="您的浏览器不支持视频播放。" data-en="Your browser does not support video playback.">您的浏览器不支持视频播放。</span>
                         </video>
                     </div>
                     
                 </div>
                 <div class="training-item">
-                    <h3>水果分拣机器人项目</h3>
-                    <p>开发了一套智能水果分拣系统，通过计算机视觉和机械臂控制实现水果的自动检测、分类和投放。负责数据集收集标注、YOLOv5s模型训练、机械臂控制逻辑实现和系统测试。</p>
+                    <h3 data-zh="水果分拣机器人项目" data-en="Fruit Sorting Robot Project">水果分拣机器人项目</h3>
+                    <p data-zh="开发了一套智能水果分拣系统，通过计算机视觉和机械臂控制实现水果的自动检测、分类和投放。负责数据集收集标注、YOLOv5s模型训练、机械臂控制逻辑实现和系统测试。" 
+                       data-en="Developed an intelligent fruit sorting system that achieves automatic detection, classification, and placement of fruits through computer vision and robotic arm control. Responsible for dataset collection and annotation, YOLOv5s model training, robotic arm control logic implementation, and system testing.">
+                       开发了一套智能水果分拣系统，通过计算机视觉和机械臂控制实现水果的自动检测、分类和投放。负责数据集收集标注、YOLOv5s模型训练、机械臂控制逻辑实现和系统测试。
+                    </p>
                     <div class="project-links">
                         <a href="https://gitee.com/D-erdenezaya/fruitDetect" class="project-link" target="_blank">
-                            <i class="fa-solid fa-square-up-right"></i> 查看项目
+                            <i class="fa-solid fa-square-up-right"></i> <span data-zh="查看项目" data-en="View Project">查看项目</span>
                         </a>
                     </div>
                     <!-- 视频播放区域 -->
                     <div style="margin-top: 16px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
                         <video controls width="100%" poster="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%B4%E6%9E%9C%E5%88%86%E6%8B%A3%E6%9C%BA%E6%A2%B0%E8%87%82%E5%9B%BE%E7%89%87.png">
                             <source src="https://github.com/erdenezaya123/mysitephoto/raw/main/%E6%B0%B4%E6%9E%9C%E5%88%86%E6%8B%A3%E6%9C%BA%E6%A2%B0%E8%87%82%E8%A7%86%E9%A2%91.mp4" type="video/mp4">
-                            您的浏览器不支持视频播放。
+                            <span data-zh="您的浏览器不支持视频播放。" data-en="Your browser does not support video playback.">您的浏览器不支持视频播放。</span>
                         </video>
                     </div>
                 </div>
@@ -1105,59 +1202,58 @@
     <section id="design-showcase">
         <div class="container">
             <div class="section-title">
-                <h2>设计展示</h2>
-            </div>
-            <div class="design-slider">
-                <div class="design-slide">
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E9%A6%96%E9%A1%B5.png" alt="前端设计图 1">
+                <h2 data-zh="设计展示" data-en="Design Showcase">设计展示</h2>
+                <div class="design-slider">
+                    <div class="design-slide">
+                        <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E9%A6%96%E9%A1%B5.png" alt="前端设计图 1">
+                    </div>
+                    <div class="design-slide">
+                        <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E5%95%86%E5%AE%B6%E5%88%97%E8%A1%A8.png" alt="前端设计图 2">
+                    </div>
+                    <div class="design-slide">
+                        <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E5%95%86%E5%93%81%E5%88%97%E8%A1%A8.png" alt="前端设计图 3">
+                    </div>
+                    <div class="design-slide">
+                        <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E5%9C%B0%E5%9D%80.png" alt="前端设计图 4">
+                    </div>
+                    <div class="design-slide">
+                        <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E7%A1%AE%E8%AE%A4%E6%94%AF%E4%BB%98.png" alt="前端设计图 5">
+                    </div>
+                    <div class="design-slide">
+                        <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E5%8E%86%E5%8F%B2%E8%AE%A2%E5%8D%95.png" alt="前端设计图 6">
+                    </div>
+                    <div class="design-slide">
+                        <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E8%B4%A6%E6%88%B7%E4%BF%A1%E6%81%AF.png" alt="前端设计图 7">
+                    </div>
+                    <div class="design-slide">
+                        <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E7%BC%96%E8%BE%91%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF.png" alt="前端设计图 8">
+                    </div>
+                    <div class="design-slide">
+                        <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E6%9B%B4%E6%8D%A2%E5%A4%B4%E5%83%8F.png" alt="前端设计图 9">
+                    </div>
+                    <div class="design-slide">
+                        <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E7%A7%AF%E5%88%86.png" alt="前端设计图 10">
+                    </div>
+                    <div class="design-slide">
+                        <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E9%92%B1%E5%8C%85.png" alt="前端设计图 11">
+                    </div>
+                    <div class="design-slide">
+                        <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E9%AA%91%E6%89%8B%E9%A6%96%E9%A1%B5.png" alt="前端设计图 12">
+                    </div>
+                    <div class="design-slide">
+                        <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E9%AA%91%E6%89%8B%E7%A1%AE%E8%AE%A4%E9%80%81%E8%BE%BE.png" alt="前端设计图 13">
+                    </div>
+                    <div class="design-slide">
+                        <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E9%AA%91%E6%89%8B%E5%B7%B2%E9%80%81%E8%BE%BE.png" alt="前端设计图 14">
+                    </div>
+                    <div class="design-slide">
+                        <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E9%AA%91%E6%89%8B%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF.png" alt="前端设计图 15">
+                    </div>
+                    <div class="design-slide">
+                        <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E9%AA%91%E6%89%8B%E9%92%B1%E5%8C%85%E6%8F%90%E7%8E%B0.png" alt="前端设计图 16">
+                    </div>
                 </div>
-                <div class="design-slide">
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E5%95%86%E5%AE%B6%E5%88%97%E8%A1%A8.png" alt="前端设计图 2">
-                </div>
-                <div class="design-slide">
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E5%95%86%E5%93%81%E5%88%97%E8%A1%A8.png" alt="前端设计图 3">
-                </div>
-                <div class="design-slide">
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E5%9C%B0%E5%9D%80.png" alt="前端设计图 4">
-                </div>
-                <div class="design-slide">
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E7%A1%AE%E8%AE%A4%E6%94%AF%E4%BB%98.png" alt="前端设计图 5">
-                </div>
-                <div class="design-slide">
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E5%8E%86%E5%8F%B2%E8%AE%A2%E5%8D%95.png" alt="前端设计图 6">
-                </div>
-                <div class="design-slide">
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E8%B4%A6%E6%88%B7%E4%BF%A1%E6%81%AF.png" alt="前端设计图 7">
-                </div>
-                <div class="design-slide">
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E7%BC%96%E8%BE%91%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF.png" alt="前端设计图 8">
-                </div>
-                <div class="design-slide">
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E6%9B%B4%E6%8D%A2%E5%A4%B4%E5%83%8F.png" alt="前端设计图 9">
-                </div>
-                <div class="design-slide">
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E7%A7%AF%E5%88%86.png" alt="前端设计图 10">
-                </div>
-                <div class="design-slide">
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E9%92%B1%E5%8C%85.png" alt="前端设计图 11">
-                </div>
-                <div class="design-slide">
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E9%AA%91%E6%89%8B%E9%A6%96%E9%A1%B5.png" alt="前端设计图 12">
-                </div>
-                <div class="design-slide">
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E9%AA%91%E6%89%8B%E7%A1%AE%E8%AE%A4%E9%80%81%E8%BE%BE.png" alt="前端设计图 13">
-                </div>
-                <div class="design-slide">
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E9%AA%91%E6%89%8B%E5%B7%B2%E9%80%81%E8%BE%BE.png" alt="前端设计图 14">
-                </div>
-                <div class="design-slide">
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E9%AA%91%E6%89%8B%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF.png" alt="前端设计图 15">
-                </div>
-                <div class="design-slide">
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E5%A4%96%E5%8D%96%E9%AA%91%E6%89%8B%E9%92%B1%E5%8C%85%E6%8F%90%E7%8E%B0.png" alt="前端设计图 16">
-                </div>
-            </div>
-            <div class="design-caption">左右滑动查看“饿了吧”外卖点餐系统设计图</div>
+            <div class="design-caption" data-zh="左右滑动查看&quot;饿了吧&quot;外卖点餐系统设计图" data-en="Swipe left/right to view the design drawings of the &quot;Hungry?&quot; food delivery system">左右滑动查看"饿了吧"外卖点餐系统设计图</div>
         </div>
 
         <div class="container">
@@ -1184,7 +1280,7 @@
                     <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFb%E7%AB%AF%E5%95%86%E5%AE%B6%E4%BF%A1%E6%81%AF%E7%AE%A1%E7%90%86.png" alt="前端设计图 23"></img>
                 </div>
             </div>
-            <div class="design-caption">左右滑动查看民宿在线预定系统B端设计图</div>
+            <div class="design-caption" data-zh="左右滑动查看民宿在线预定系统B端设计图" data-en="Swipe left/right to view the B-side design drawings of the homestay booking system">左右滑动查看民宿在线预定系统B端设计图</div>
         </div>
 
         <div class="container">
@@ -1289,39 +1385,48 @@
                     <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/23.png" alt="前端设计图 48"></img>
                 </div>
             </div>
-            <div class="design-caption">左右滑动查看民宿在线预定系统C端设计图</div>
+            <div class="design-caption" data-zh="左右滑动查看民宿在线预定系统C端设计图" data-en="Swipe left/right to view the C-side design drawings of the homestay booking system">左右滑动查看民宿在线预定系统C端设计图</div>
         </div>
     </section>
 
     <section id="honors">
         <div class="container">
             <div class="section-title">
-                <h2>荣誉奖项</h2>
+                <h2 data-zh="荣誉奖项" data-en="Honors & Awards">荣誉奖项</h2>
             </div>
             <div class="honors-grid">
                 <div class="honor-card">
                     <div class="honor-icon">
                         <i class="fas fa-trophy"></i>
                     </div>
-                    <h3>天津大学优秀留学生奖</h3>
-                    <p>连续两个学年获得天津大学优秀留学生奖学金，​​以肯定其​​在学术和课外活动中的卓越表现。</p>
+                    <h3 data-zh="天津大学优秀留学生奖" data-en="Tianjin University Outstanding International Student Award">天津大学优秀留学生奖</h3>
+                    <p data-zh="连续两个学年获得天津大学优秀留学生奖学金，​​以肯定其​​在学术和课外活动中的卓越表现。" 
+                       data-en="Received Tianjin University Outstanding International Student Scholarship for two consecutive academic years, in recognition of excellence in academics and extracurricular activities.">
+                       连续两个学年获得天津大学优秀留学生奖学金，​​以肯定其​​在学术和课外活动中的卓越表现。
+                    </p>
                     <div class="honor-date">2022-2024</div>
                 </div>
                 <div class="honor-card">
                     <div class="honor-icon">
                         <i class="fas fa-medal"></i>
                     </div>
-                    <h3>2024年度学业勤奋奖</h3>
-                    <p>该奖项不仅是对其优异学业成绩的肯定，更是对其刻苦钻研、持之以恒精神的高度认可。</p>
-                    <div class="honor-date">2024年12月</div>
+                    <h3 data-zh="2024年度学业勤奋奖" data-en="2024 Academic Diligence Award">2024年度学业勤奋奖</h3>
+                    <p data-zh="该奖项不仅是对其优异学业成绩的肯定，更是对其刻苦钻研、持之以恒精神的高度认可。" 
+                       data-en="This award not only recognizes outstanding academic performance but also highly acknowledges the spirit of diligent research and perseverance.">
+                       该奖项不仅是对其优异学业成绩的肯定，更是对其刻苦钻研、持之以恒精神的高度认可。
+                    </p>
+                    <div class="honor-date" data-zh="2024年12月" data-en="December 2024">2024年12月</div>
                 </div>
                 <div class="honor-card">
                     <div class="honor-icon">
                         <i class="fas fa-award"></i>
                     </div>
-                    <h3>飞腾平台深度并行开发工程师认证</h3>
-                    <p>通过飞腾信息技术有限公司实训获得深度并行开发工程师认证。</p>
-                    <div class="honor-date">2025年7月</div>
+                    <h3 data-zh="飞腾平台深度并行开发工程师认证" data-en="Phytium Platform Deep Parallel Development Engineer Certification">飞腾平台深度并行开发工程师认证</h3>
+                    <p data-zh="通过飞腾信息技术有限公司实训获得深度并行开发工程师认证。" 
+                       data-en="Obtained Deep Parallel Development Engineer Certification through training at Phytium Information Technology Co., Ltd.">
+                       通过飞腾信息技术有限公司实训获得深度并行开发工程师认证。
+                    </p>
+                    <div class="honor-date" data-zh="2025年7月" data-en="July 2025">2025年7月</div>
                 </div>
             </div>
         </div>
@@ -1330,36 +1435,45 @@
     <section id="hobbies">
         <div class="container">
             <div class="section-title">
-                <h2>兴趣爱好</h2>
+                <h2 data-zh="兴趣爱好" data-en="Hobbies & Interests">兴趣爱好</h2>
             </div>
             <div class="hobbies-grid">
                 <div class="hobby-card">
                     <div class="hobby-img">
-                        <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/main/%E6%91%84%E5%BD%B1.jpg" alt="摄影作品 - 自然风光">
+                        <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/main/%E6%91%84%E5%BD%B1.jpg" alt="Photography - Natural Scenery" data-zh-alt="摄影作品 - 自然风光" data-en-alt="Photography - Natural Scenery">
                     </div>
                     <div class="hobby-info">
-                        <h3>摄影</h3>
-                        <p>用镜头捕捉生活中的美好瞬间，特别擅长城市风光和自然景观摄影。通过光影与构图的精心设计，记录旅途中的精彩时刻和日常生活中的诗意画面。</p>
+                        <h3 data-zh="摄影" data-en="Photography">摄影</h3>
+                        <p data-zh="用镜头捕捉生活中的美好瞬间，特别擅长城市风光和自然景观摄影。通过光影与构图的精心设计，记录旅途中的精彩时刻和日常生活中的诗意画面。" 
+                           data-en="Capturing beautiful moments in life through the lens, particularly skilled in urban landscapes and natural scenery photography. Through careful design of light, shadow, and composition, recording wonderful moments during travels and poetic scenes in daily life.">
+                           用镜头捕捉生活中的美好瞬间，特别擅长城市风光和自然景观摄影。通过光影与构图的精心设计，记录旅途中的精彩时刻和日常生活中的诗意画面。
+                        </p>
                     </div>
                 </div>
                 
                 <div class="hobby-card">
                     <div class="hobby-img">
-                        <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/main/%E7%9F%B3%E5%A1%91%E7%B2%98%E5%9C%9F.jpg" alt="石塑粘土作品">
+                        <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/main/%E7%9F%B3%E5%A1%91%E7%B2%98%E5%9C%9F.jpg" alt="Clay Artworks" data-zh-alt="石塑粘土作品" data-en-alt="Clay Artworks">
                     </div>
                     <div class="hobby-info">
-                        <h3>石塑粘土</h3>
-                        <p>创作各种石塑粘土艺术品，从人物造型到装饰品，表达创意想法。通过手工塑造、雕刻和上色，将平凡的材料转化为充满个性的艺术创作。</p>
+                        <h3 data-zh="石塑粘土" data-en="Clay Art">石塑粘土</h3>
+                        <p data-zh="创作各种石塑粘土艺术品，从人物造型到装饰品，表达创意想法。通过手工塑造、雕刻和上色，将平凡的材料转化为充满个性的艺术创作。" 
+                           data-en="Creating various clay artworks, from figure sculptures to decorative items, expressing creative ideas. Through hand shaping, carving, and coloring, transforming ordinary materials into personalized artistic creations.">
+                           创作各种石塑粘土艺术品，从人物造型到装饰品，表达创意想法。通过手工塑造、雕刻和上色，将平凡的材料转化为充满个性的艺术创作。
+                        </p>
                     </div>
                 </div>
                 
                 <div class="hobby-card">
                     <div class="hobby-img">
-                        <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/main/%E6%B5%B7%E6%A3%A0%E8%8A%82%E5%AD%A6%E4%B9%A0%E8%AF%AD%E8%A8%80%E6%B4%BB%E5%8A%A8.jpg" alt="设计作品">
+                        <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/main/%E6%B5%B7%E6%A3%A0%E8%8A%82%E5%AD%A6%E4%B9%A0%E8%AF%AD%E8%A8%80%E6%B4%BB%E5%8A%A8.jpg" alt="Design Works" data-zh-alt="设计作品" data-en-alt="Design Works">
                     </div>
                     <div class="hobby-info">
-                        <h3>平面设计</h3>
-                        <p>致力于通过平面设计连接创意与用户，专注于构建兼具美感和功能性的视觉体验。本作品是为海棠节社团纳新活动设计的外语学习游戏卡片，旨在通过视觉互动激发参与兴趣。</p>
+                        <h3 data-zh="平面设计" data-en="Graphic Design">平面设计</h3>
+                        <p data-zh="致力于通过平面设计连接创意与用户，专注于构建兼具美感和功能性的视觉体验。本作品是为海棠节社团纳新活动设计的外语学习游戏卡片，旨在通过视觉互动激发参与兴趣。" 
+                           data-en="Committed to connecting creativity with users through graphic design, focusing on building visual experiences that combine aesthetics and functionality. This work is a foreign language learning game card designed for the Crabapple Festival club recruitment activity, aiming to stimulate participation interest through visual interaction.">
+                           致力于通过平面设计连接创意与用户，专注于构建兼具美感和功能性的视觉体验。本作品是为海棠节社团纳新活动设计的外语学习游戏卡片，旨在通过视觉互动激发参与兴趣。
+                        </p>
                     </div>
                 </div>
             </div>
@@ -1369,28 +1483,37 @@
     <section id="experience">
         <div class="container">
             <div class="section-title">
-                <h2>校园经历</h2>
+                <h2 data-zh="校园经历" data-en="Campus Experience">校园经历</h2>
             </div>
             <div class="experience-timeline">
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <div class="date">2025.5</div>
-                        <h3>担任国际文化节蒙古国展屋总负责人</h3>
-                        <p>2025年5月，组织35名以上同学成功策划并执行了为期一天的文化展示、体验与展卖活动。此次活动全面锻炼了我的大型项目领导力、跨文化团队协调能力与现场执行力</p>
+                        <div class="date" data-zh="2025.5" data-en="May 2025">2025.5</div>
+                        <h3 data-zh="担任国际文化节蒙古国展屋总负责人" data-en="Chief Organizer of Mongolia Pavilion at International Cultural Festival">担任国际文化节蒙古国展屋总负责人</h3>
+                        <p data-zh="2025年5月，组织35名以上同学成功策划并执行了为期一天的文化展示、体验与展卖活动。此次活动全面锻炼了我的大型项目领导力、跨文化团队协调能力与现场执行力" 
+                           data-en="In May 2025, organized over 35 students to successfully plan and execute a one-day cultural exhibition, experience, and sales event. This activity comprehensively developed my large-scale project leadership, cross-cultural team coordination, and on-site execution capabilities.">
+                           2025年5月，组织35名以上同学成功策划并执行了为期一天的文化展示、体验与展卖活动。此次活动全面锻炼了我的大型项目领导力、跨文化团队协调能力与现场执行力
+                        </p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <div class="date">2025.3 - 至今</div>
-                        <h3>国际教育新媒体中心 - 主席团成员</h3>
-                        <p>独立运营学院官微，提升影响力与互动率；并成功策划执行海棠节大型纳新活动，领导力与执行力获显著提升。</p>
+                        <div class="date" data-zh="2025.3 - 至今" data-en="March 2025 - Present">2025.3 - 至今</div>
+                        <h3 data-zh="国际教育新媒体中心 - 主席团成员" data-en="International Education New Media Center - Presidium Member">国际教育新媒体中心 - 主席团成员</h3>
+                        <p data-zh="独立运营学院官微，提升影响力与互动率；并成功策划执行海棠节大型纳新活动，领导力与执行力获显著提升。" 
+                           data-en="Independently operated the college's official WeChat account, enhancing influence and interaction rates; successfully planned and executed the large-scale Crabapple Festival recruitment event, with significant improvement in leadership and execution capabilities.">
+                           独立运营学院官微，提升影响力与互动率；并成功策划执行海棠节大型纳新活动，领导力与执行力获显著提升。
+                        </p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <div class="date">2024.3 - 2025.3</div>
-                        <h3>教育新媒体中心 - 新闻采编部部长</h3>
-                        <p>管理15人团队，负责学院新闻采编、专题报道及活动宣传。优化团队协作流程，提高新闻产出效率和质量。获评"年度优秀部长"。</p>
+                        <div class="date" data-zh="2024.3 - 2025.3" data-en="March 2024 - March 2025">2024.3 - 2025.3</div>
+                        <h3 data-zh="教育新媒体中心 - 新闻采编部部长" data-en="Education New Media Center - Head of News Editorial Department">教育新媒体中心 - 新闻采编部部长</h3>
+                        <p data-zh="管理15人团队，负责学院新闻采编、专题报道及活动宣传。优化团队协作流程，提高新闻产出效率和质量。获评&quot;年度优秀部长&quot;。" 
+                           data-en="Managed a 15-person team responsible for college news gathering and editing, special reports, and event publicity. Optimized team collaboration processes, improving news production efficiency and quality. Awarded 'Outstanding Department Head of the Year'.">
+                           管理15人团队，负责学院新闻采编、专题报道及活动宣传。优化团队协作流程，提高新闻产出效率和质量。获评"年度优秀部长"。
+                        </p>
                     </div>
                 </div>
             </div>
@@ -1400,10 +1523,13 @@
     <section id="contact">
         <div class="container">
             <div class="section-title">
-                <h2>联系方式</h2>
+                <h2 data-zh="联系方式" data-en="Contact">联系方式</h2>
             </div>
             <div class="contact-content">
-                <p>如果您对我的项目或技能感兴趣，欢迎通过以下方式与我联系。</p>
+                <p data-zh="如果您对我的项目或技能感兴趣，欢迎通过以下方式与我联系。" 
+                   data-en="If you are interested in my projects or skills, please feel free to contact me through the following methods.">
+                   如果您对我的项目或技能感兴趣，欢迎通过以下方式与我联系。
+                </p>
                 <div class="contact-icons">
                     <div class="contact-icon" id="email-icon">
                         <i class="fas fa-envelope"></i>
@@ -1418,15 +1544,69 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 D.Erdenezaya 保留所有权利</p>
+            <p data-zh="&copy; 2025 D.Erdenezaya 保留所有权利" data-en="&copy; 2025 D.Erdenezaya All Rights Reserved">&copy; 2025 D.Erdenezaya 保留所有权利</p>
         </div>
     </footer>
 
     <!-- Notyf JS -->
     <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
     <script>
+        // Language configuration
+        const translations = {
+            zh: {
+                welcomeText: "Welcome to zaya's page!",
+                emailCopied: "邮箱地址已复制到剪贴板！",
+                wechatCopied: "微信号已复制到剪贴板！",
+                copyFailed: "复制失败，请手动复制"
+            },
+            en: {
+                welcomeText: "Welcome to zaya's page!",
+                emailCopied: "Email address copied to clipboard!",
+                wechatCopied: "WeChat ID copied to clipboard!",
+                copyFailed: "Copy failed, please copy manually"
+            }
+        };
+
+        let currentLang = 'zh';
+
+        // Language switcher functionality
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            // Update button states
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+
+            // Update HTML lang attribute
+            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+
+            // Update all translatable elements
+            document.querySelectorAll('[data-zh][data-en]').forEach(element => {
+                const text = element.getAttribute(`data-${lang}`);
+                if (text) {
+                    element.textContent = text;
+                }
+            });
+
+            // Update alt texts for images
+            document.querySelectorAll('img[data-zh-alt][data-en-alt]').forEach(img => {
+                const alt = img.getAttribute(`data-${lang}-alt`);
+                if (alt) {
+                    img.alt = alt;
+                }
+            });
+
+            // Update title if needed
+            const titleElement = document.querySelector('title');
+            if (titleElement) {
+                const newTitle = lang === 'zh' ? 'zaya的个人网站' : "zaya's page";
+                titleElement.textContent = newTitle;
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
-            const text = "Welcome to zaya's page!";
+            const text = translations[currentLang].welcomeText;
             const welcomeText = document.getElementById('welcome-text');
             const splashScreen = document.getElementById('splash-screen');
             let i = 0;
@@ -1452,7 +1632,7 @@
             
             setTimeout(typeWriter, 500);
 
-            // 初始化 Notyf
+            // Initialize Notyf
             const notyf = new Notyf({
                 duration: 2000,
                 position: {
@@ -1474,29 +1654,37 @@
                 ]
             });
 
-            // 复制邮件地址
+            // Email copy functionality
             document.getElementById('email-icon').addEventListener('click', function() {
                 navigator.clipboard.writeText('6322000326@tju.edu.cn').then(() => {
-                    notyf.success('邮箱地址已复制到剪贴板！');
+                    notyf.success(translations[currentLang].emailCopied);
                 }).catch(err => {
-                    console.error('复制失败:', err);
-                    notyf.error('复制失败，请手动复制');
+                    console.error('Copy failed:', err);
+                    notyf.error(translations[currentLang].copyFailed);
                 });
             });
 
-            // 复制微信号
+            // WeChat copy functionality
             document.getElementById('wechat-icon').addEventListener('click', function() {
                 navigator.clipboard.writeText('ez1025').then(() => {
-                    notyf.success('微信号已复制到剪贴板！');
+                    notyf.success(translations[currentLang].wechatCopied);
                 }).catch(err => {
-                    console.error('复制失败:', err);
-                    notyf.error('复制失败，请手动复制');
+                    console.error('Copy failed:', err);
+                    notyf.error(translations[currentLang].copyFailed);
                 });
             });
 
+            // Mobile menu toggle
             document.getElementById('mobile-menu').addEventListener('click', function() {
                 const nav = document.querySelector('.nav-links');
                 nav.classList.toggle('active');
+            });
+
+            // Language switcher event listeners
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    switchLanguage(this.dataset.lang);
+                });
             });
         });
 
@@ -1524,7 +1712,5 @@
             });
         });
     </script>
-
 </body>
 </html>
-
