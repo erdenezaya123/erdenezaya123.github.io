@@ -376,6 +376,14 @@
             color: var(--secondary);
             font-weight: 600;
         }
+
+        .project-role {
+            color: var(--accent);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+        }
         
         .project-info p {
             color: var (--gray);
@@ -830,6 +838,42 @@
                 font-size: 24px;
             }
         }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+        }
+
+        .menu-toggle i {
+            font-size: 24px;
+            color: var(--light);
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background-color: var(--primary);
+                position: absolute;
+                top: 50px;
+                right: 0;
+                width: 100%;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                text-align: center;
+                margin: 10px 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -843,6 +887,9 @@
         <div class="container">
             <nav>
                 <div class="logo">D.Erdenezaya</div>
+                <div class="menu-toggle" id="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
                 <ul class="nav-links">
                     <li><a href="#home">首页</a></li>
                     <li><a href="#about">教育背景</a></li>
@@ -876,7 +923,7 @@
                         <span>软件工程</span>
                     </div>
                 </div>
-                <p>热爱技术与创造的软件工程专业大四学生，具备扎实的前端开发与系统设计能力。致力于探索以用户为中心的设计方法，并擅长通过技术原型验证设计方案的可行性与用户体验。希望深入研究交互设计、人机交互、智能体交互等前沿领域。</p>
+                <p>热爱技术与创造的软件工程专业大四学生，具备扎实的全栈开发与系统设计能力。致力于探索以用户为中心的设计方法，并擅长通过技术原型验证设计方案的可行性与用户体验。希望深入研究交互设计、人机交互、智能体交互等前沿领域。</p>
                 <a href="#projects" class="btn">查看我的项目</a>
             </div>
         </div>
@@ -925,6 +972,7 @@
                     </div>
                     <div class="project-info">
                         <h3>"饿了吧"外卖点餐系统</h3>
+                        <span class="project-role">前端工程师</span>
                         <p>基于Vue3+SpringBoot的前后端分离式在线订餐平台，修复并优化了原有系统的功能缺陷和交互问题。</p>
                         <div class="project-tech">
                             <span class="tech-tag">Vue3</span>
@@ -945,6 +993,7 @@
                     </div>
                     <div class="project-info">
                         <h3>"饿了吧"后端扩展</h3>
+                        <span class="project-role">后端工程师</span>
                         <p>在现有系统基础上扩展电子钱包和积分系统，采用DDD充血模型设计高可用金融级功能模块。</p>
                         <div class="project-tech">
                             <span class="tech-tag">Vue3</span>
@@ -965,6 +1014,7 @@
                     </div>
                     <div class="project-info">
                         <h3>"饿了吧"微服务架构升级</h3>
+                        <span class="project-role">前端工程师</span>
                         <p>将系统从SpringBoot单体应用重构为基于SpringCloud的微服务架构，提升系统可维护性和容错能力。</p>
                         <div class="project-tech">
                             <span class="tech-tag">Vue3</span>
@@ -979,12 +1029,13 @@
                     </div>
                 </div>
                 
-                <div class="project-card" onclick="window.open('https://gitee.com/D-erdenezaya/homestaybooking', '_blank')">
+                <div class="project-card" onclick="window.open('https://gitee.com/wangfengtingwwfftt/homestaybookingback', '_blank')">
                     <div class="project-img">
                         <i class="fas fa-home"></i>
                     </div>
                     <div class="project-info">
                         <h3>基于微服务架构的民宿在线预订平台</h3>
+                        <span class="project-role">前端工程师</span>
                         <p>基于Spring Cloud微服务架构，构建前后端分离的民宿预订平台。用户端实现从搜索、预订、支付到评价的全流程。商家端则提供房源、订单、退款及评论等后台管理功能，支持多角色协同操作。</p>
                         <div class="project-tech">
                             <span class="tech-tag">Vue3</span>
@@ -993,7 +1044,7 @@
                             <span class="tech-tag">Gateway</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://gitee.com/D-erdenezaya/homestaybooking" class="project-link" target="_blank">
+                            <a href="https://gitee.com/wangfengtingwwfftt/homestaybookingback" class="project-link" target="_blank">
                                 <i class="fa-solid fa-square-up-right"></i> 查看代码
                             </a>
                         </div>
@@ -1132,27 +1183,6 @@
                 <div class="design-slide"> 
                     <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFb%E7%AB%AF%E5%95%86%E5%AE%B6%E4%BF%A1%E6%81%AF%E7%AE%A1%E7%90%86.png" alt="前端设计图 23"></img>
                 </div>
-                <div class="design-slide"> 
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFc%E7%AB%AF%E7%99%BB%E5%BD%95.png" alt="前端设计图 24"></img>
-                </div>
-                <div class="design-slide"> 
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFc%E7%AB%AF%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF.png" alt="前端设计图 25"></img>
-                </div>
-                <div class="design-slide"> 
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFc%E7%AB%AF%E7%BC%96%E8%BE%91%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF.png" alt="前端设计图 26"></img>
-                </div>
-                <div class="design-slide"> 
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFc%E7%AB%AF%E6%9B%B4%E6%8D%A2%E5%90%8D%E5%AD%97.png" alt="前端设计图 27"></img>
-                </div>
-                <div class="design-slide"> 
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFc%E7%AB%AF%E6%80%A7%E5%88%AB%E8%AE%BE%E7%BD%AE.png" alt="前端设计图 28"></img>
-                </div>
-                <div class="design-slide"> 
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFc%E7%AB%AF%E8%B4%A6%E6%88%B7%E4%B8%8E%E5%AE%89%E5%85%A8.png" alt="前端设计图 29"></img>
-                </div>
-                <div class="design-slide"> 
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFc%E7%AB%AF%E6%9B%B4%E6%94%B9%E5%AF%86%E7%A0%81.png" alt="前端设计图 30"></img>
-                </div>
             </div>
             <div class="design-caption">左右滑动查看民宿在线预定系统B端设计图</div>
         </div>
@@ -1160,46 +1190,103 @@
         <div class="container">
             <div class="design-slider">
                 <div class="design-slide"> 
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFb%E7%AB%AF%E5%95%86%E5%AE%B6%E7%99%BB%E5%BD%95.png" alt="前端设计图 17"></img>
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/34.png" alt="前端设计图 17"></img>
                 </div>
                 <div class="design-slide"> 
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFb%E7%AB%AF%E6%88%BF%E6%BA%90%E7%AE%A1%E7%90%86.png" alt="前端设计图 18"></img>
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/32.png" alt="前端设计图 18"></img>
                 </div>
                 <div class="design-slide"> 
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFb%E7%AB%AF%E6%B7%BB%E5%8A%A0%E6%88%BF%E6%BA%90.png" alt="前端设计图 19"></img>
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/33.png" alt="前端设计图 19"></img>
                 </div>
                 <div class="design-slide"> 
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFb%E7%AB%AF%E6%88%BF%E5%9E%8B%E7%AE%A1%E7%90%86.png" alt="前端设计图 20"></img>
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/26.png" alt="前端设计图 20"></img>
                 </div>
                 <div class="design-slide"> 
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFb%E7%AB%AF%E6%B7%BB%E5%8A%A0%E6%88%BF%E5%9E%8B.png" alt="前端设计图 21"></img>
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/29.png" alt="前端设计图 21"></img>
                 </div>
                 <div class="design-slide"> 
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFb%E7%AB%AF%E8%AE%A2%E5%8D%95%E7%AE%A1%E7%90%86.png" alt="前端设计图 22"></img>
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/27.png" alt="前端设计图 22"></img>
                 </div>
                 <div class="design-slide"> 
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFb%E7%AB%AF%E5%95%86%E5%AE%B6%E4%BF%A1%E6%81%AF%E7%AE%A1%E7%90%86.png" alt="前端设计图 23"></img>
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/28.png" alt="前端设计图 23"></img>
                 </div>
                 <div class="design-slide"> 
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFc%E7%AB%AF%E7%99%BB%E5%BD%95.png" alt="前端设计图 24"></img>
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/30.png" alt="前端设计图 24"></img>
                 </div>
                 <div class="design-slide"> 
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFc%E7%AB%AF%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF.png" alt="前端设计图 25"></img>
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/21.png" alt="前端设计图 25"></img>
                 </div>
                 <div class="design-slide"> 
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFc%E7%AB%AF%E7%BC%96%E8%BE%91%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF.png" alt="前端设计图 26"></img>
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/20.png" alt="前端设计图 26"></img>
                 </div>
                 <div class="design-slide"> 
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFc%E7%AB%AF%E6%9B%B4%E6%8D%A2%E5%90%8D%E5%AD%97.png" alt="前端设计图 27"></img>
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/25.png" alt="前端设计图 49"></img>
                 </div>
                 <div class="design-slide"> 
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFc%E7%AB%AF%E6%80%A7%E5%88%AB%E8%AE%BE%E7%BD%AE.png" alt="前端设计图 28"></img>
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/31.png" alt="前端设计图 27"></img>
                 </div>
                 <div class="design-slide"> 
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFc%E7%AB%AF%E8%B4%A6%E6%88%B7%E4%B8%8E%E5%AE%89%E5%85%A8.png" alt="前端设计图 29"></img>
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/36.png" alt="前端设计图 28"></img>
                 </div>
                 <div class="design-slide"> 
-                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/%E6%B0%91%E5%AE%BFc%E7%AB%AF%E6%9B%B4%E6%94%B9%E5%AF%86%E7%A0%81.png" alt="前端设计图 30"></img>
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/35.png" alt="前端设计图 29"></img>
+                </div>
+                <div class="design-slide"> 
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/7.png" alt="前端设计图 30"></img>
+                </div>
+                <div class="design-slide"> 
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/5.png" alt="前端设计图 31"></img>
+                </div>
+                <div class="design-slide"> 
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/4.png" alt="前端设计图 32"></img>
+                </div>
+                <div class="design-slide"> 
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/8.png" alt="前端设计图 33"></img>
+                </div>
+                <div class="design-slide"> 
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/6.png" alt="前端设计图 34"></img>
+                </div>
+                <div class="design-slide"> 
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/9.png" alt="前端设计图 35"></img>
+                </div>
+                <div class="design-slide"> 
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/3.png" alt="前端设计图 36"></img>
+                </div>
+                <div class="design-slide"> 
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/12.png" alt="前端设计图 37"></img>
+                </div>
+                <div class="design-slide"> 
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/15.png" alt="前端设计图 38"></img>
+                </div>
+                <div class="design-slide"> 
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/10.png" alt="前端设计图 39"></img>
+                </div>
+                <div class="design-slide"> 
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/24.png" alt="前端设计图 40"></img>
+                </div>
+                <div class="design-slide"> 
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/13.png" alt="前端设计图 41"></img>
+                </div>
+                <div class="design-slide"> 
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/14.png" alt="前端设计图 42"></img>
+                </div>
+                <div class="design-slide"> 
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/11.png" alt="前端设计图 43"></img>
+                </div>
+                <div class="design-slide"> 
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/17.png" alt="前端设计图 44"></img>
+                </div>
+                <div class="design-slide"> 
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/1.png" alt="前端设计图 45"></img>
+                </div>
+                <div class="design-slide"> 
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/18.png" alt="前端设计图 46"></img>
+                </div>
+                <div class="design-slide"> 
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/22.png" alt="前端设计图 47"></img>
+                </div>
+                <div class="design-slide"> 
+                    <img src="https://raw.githubusercontent.com/erdenezaya123/mysitephoto/refs/heads/main/23.png" alt="前端设计图 48"></img>
                 </div>
             </div>
             <div class="design-caption">左右滑动查看民宿在线预定系统C端设计图</div>
@@ -1217,7 +1304,7 @@
                         <i class="fas fa-trophy"></i>
                     </div>
                     <h3>天津大学优秀留学生奖</h3>
-                    <p>连续两个学年获得天津大学优秀留学生奖学金，表彰在学术和课外活动中的卓越表现。</p>
+                    <p>连续两个学年获得天津大学优秀留学生奖学金，​​以肯定其​​在学术和课外活动中的卓越表现。</p>
                     <div class="honor-date">2022-2024</div>
                 </div>
                 <div class="honor-card">
@@ -1405,6 +1492,11 @@
                     console.error('复制失败:', err);
                     notyf.error('复制失败，请手动复制');
                 });
+            });
+
+            document.getElementById('mobile-menu').addEventListener('click', function() {
+                const nav = document.querySelector('.nav-links');
+                nav.classList.toggle('active');
             });
         });
 
